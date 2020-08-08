@@ -1,0 +1,29 @@
+<header>
+    <a class="navbar-brand" href="/">Tasks</a>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        
+    <% if logged_in? %>
+    <div class="nav-item dropdown">
+    
+<%= current_user.name %>
+         
+                    <li class="dropdown-item">
+                      <%= link_to 'Logout', logout_path, method: :delete %>
+                      </li>
+                  </ul>
+          </divs>
+          
+          <% else %>
+          
+          <li class="nav-item">
+<%= link_to 'Signup', signup_path, class: 'nav-link' %>
+</li>
+          <li class="nav-item">
+        <%= link_to 'Login', login_path, class: 'nav-link' %>
+        </li>
+        <% end %>
+        </ul>
+    </div>
+</header>
