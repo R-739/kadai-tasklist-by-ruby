@@ -1,18 +1,19 @@
 <% if users.any? %>
 
+  <ul class="list-unstyled">
     
 <% users.each do |user| %>
 
-     
+      
+        
             
 <%= user.name %>
 
           
-<%= link_to 'View profile', user_path(user) %>
-
     
 <% end %>
 
+  
   
 <%= paginate users %>
 
