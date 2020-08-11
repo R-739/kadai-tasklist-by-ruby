@@ -1,14 +1,10 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
-    before_action :correct_user, only: [:destroy,:show,:edit,:update]
+    before_action :correct_user, only: [:destroy,:edit,:update,:show]
     def index
-        if logged_in?
-      @task = current_user.tasks.build  # form_with 用
-      @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-        end
+      @task = current_user.tasks
     end
             
-
 
     def show
     end
@@ -19,6 +15,7 @@ class TasksController < ApplicationController
 
     def create
         @task = current_user.tasks.build(task_params)
+        
         if @task.save
             flash[:success] = 'タスクが投稿されました。'
             redirect_to root_url
