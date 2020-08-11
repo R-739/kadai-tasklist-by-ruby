@@ -2,6 +2,8 @@
 
 <%= form_with(model: @task, local: true) do |f| %>
 
+<%= render 'layouts/error_task', model: f.object %>
+
 <%= f.label :status, 'ステータス' %>
     
     <%= f.text_field :status%>
@@ -15,7 +17,6 @@
     
     <% end %>
     
-<%= render 'form', task: @task %>
 
 
 <%= link_to '一覧に戻る', tasks_path %>
